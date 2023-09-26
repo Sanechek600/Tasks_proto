@@ -1,0 +1,20 @@
+{% extends 'tasks/layout.html' %}
+
+{% block title %}
+Новая служебка
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <h1>Новая служебка</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.title }}<br>
+        {{ form.description }}<br>
+        {{ form.deadline }}<br>
+        <span>{{ error }}</span><br>
+        <button class="btn btn-success" type="submit">Создать</button>
+    </form>
+</div>
+{% endblock %}
+

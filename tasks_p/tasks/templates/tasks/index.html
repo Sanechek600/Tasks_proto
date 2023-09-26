@@ -1,0 +1,39 @@
+{% extends 'tasks/layout.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <h1>{{ title }}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="6">Служебные записки (все)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Заголовок</td>
+                <td>Описание</td>
+                <td>Дедлайн</td>
+                <td>Создана</td>
+                <td>Изменена</td>
+                <td>Закрыта</td>
+            </tr>
+            {% for el in tasks %}
+            <tr>
+                <td>{{ el.title }}</td>
+                <td>{{ el.description }}</td>
+                <td>{{ el.deadline }}</td>
+                <td>{{ el.created }}</td>
+                <td>{{ el.changed }}</td>
+                <td>{{ el.closed }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'create' %}"><button class="btn btn-info">Новая служебка</button></a>
+</div>
+{% endblock %}
+
